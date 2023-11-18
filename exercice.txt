@@ -1,3 +1,0 @@
-ESN
--profile(senior,junior,confirmé)
--salaire 200k 100k 150
