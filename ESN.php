@@ -137,7 +137,7 @@ class ESN{
 
         foreach ($this->collaborators as $collaborator) {
             echo "- Name : {$collaborator->getNom()}, {$collaborator->getProfile()}, Adress : {$collaborator->getAdresse()} \n";
-            // Vous pouvez ajouter d'autres informations ici selon vos besoins
+            
         }
     }
 }
