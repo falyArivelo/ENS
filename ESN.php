@@ -107,7 +107,7 @@ class ESN{
     }
 
     public function calculSalaire(Employe $employe): float{
-        $profile = $employe.getProfile();
+        $profile = mb_strtolower($employe.getProfile());
 
         switch($profile){
             case "senior":
@@ -124,16 +124,20 @@ class ESN{
         array_push($this->collaborators, $employe);
     }
 
-    // public function addCollaborator(Employe $employe): void {
-    //     $this->collaborators[] = $employe;
-    // }
-
-    
     public function RemoveCollaborator(Employe $employe) {
         $index = array_search($employe, $this->collaborators);
 
         if ($index !== false) {
             unset($this->collaborators[$index]);
+        }
+    }
+
+    public function listCollaborators(): void {
+        echo "List collaborators of {$this->nom} :\n";
+
+        foreach ($this->collaborators as $collaborator) {
+            echo "- Name : {$collaborator->getNom()}, {$collaborator->getProfile()}, Adress : {$collaborator->getAdresse()} \n";
+            // Vous pouvez ajouter d'autres informations ici selon vos besoins
         }
     }
 }
@@ -164,4 +168,6 @@ $bocasay->addCollaborator($emp2);
 $bocasay->RemoveCollaborator($emp2);
 
 
-echo $bocasay->getNombreDev();
+// echo $bocasay->getNombreDev();
+
+$bocasay->listCollaborators();
