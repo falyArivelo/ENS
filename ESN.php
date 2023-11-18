@@ -68,7 +68,6 @@ class ESN{
     private string $nom;
     private string $adresse;
     private int $nombreDev;
-    /** Employe[] $collaborators */
     private array $collaborators;
 
     public function __construct(){
@@ -116,7 +115,6 @@ class ESN{
                 return 150000;
             case "junior":
                 return 100000;
-
         }
     }
 
@@ -137,7 +135,6 @@ class ESN{
 
         foreach ($this->collaborators as $collaborator) {
             echo "- Name : {$collaborator->getNom()}, {$collaborator->getProfile()}, Adress : {$collaborator->getAdresse()} \n";
-            
         }
     }
 }
@@ -145,8 +142,6 @@ class ESN{
 $bocasay = new ESN();
 $bocasay->setNom("BOCASAY");
 $bocasay->setAdresse("je sais pas");
-
-
 
 $emp = new Employe();
 $emp->setNom("faly");
@@ -164,10 +159,7 @@ $emp2->addContact("034 72 832 23");
 
 $bocasay->addCollaborator($emp);
 $bocasay->addCollaborator($emp2);
-
 $bocasay->RemoveCollaborator($emp2);
 
-
 // echo $bocasay->getNombreDev();
-
 $bocasay->listCollaborators();
